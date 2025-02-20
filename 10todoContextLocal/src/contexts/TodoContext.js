@@ -5,7 +5,7 @@ export const TodoContext=createContext({
         {
             id: 1,
             todo: "Todo msg",
-            completed: false
+            completed: false,
         }
     ],
     addTodo: (todo) => {},
@@ -14,7 +14,7 @@ export const TodoContext=createContext({
     toggleComplete: (id) => {},
 })
 
-export const useTodo= () =>{
+export const useTodo = () =>{
     return useContext(TodoContext)
 }
 
