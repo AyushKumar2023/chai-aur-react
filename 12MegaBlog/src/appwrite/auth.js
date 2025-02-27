@@ -1,7 +1,7 @@
 // we can use this code in many appwrite projects
 
 
-import conf from '../conf.js';
+import conf from '../conf/conf.js';
 
 import { Client, Account, ID } from "appwrite";
 
@@ -39,7 +39,6 @@ export class AuthService{
             throw error;
         }
 
-        return null;
     }
 
     async getCurrentUser(){
@@ -47,15 +46,16 @@ export class AuthService{
             const user=await this.account.get();
             return user;
         } catch (error) {
-            throw error;
+            console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
+        return null;
     }
 
     async logout(){
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            throw error;
+            console.log("Appwrite serive :: logout :: error", error);
         }
     }
 }
